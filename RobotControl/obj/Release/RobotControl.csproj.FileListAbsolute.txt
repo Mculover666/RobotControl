@@ -1,0 +1,13 @@
+E:\C#\project\RobotControl\RobotControl\bin\Release\RobotControl.exe
+E:\C#\project\RobotControl\RobotControl\bin\Release\RobotControl.pdb
+E:\C#\project\RobotControl\RobotControl\obj\Release\RobotControl.Form1.resources
+E:\C#\project\RobotControl\RobotControl\obj\Release\RobotControl.Properties.Resources.resources
+E:\C#\project\RobotControl\RobotControl\obj\Release\RobotControl.csproj.GenerateResource.cache
+E:\C#\project\RobotControl\RobotControl\obj\Release\RobotControl.csproj.CoreCompileInputs.cache
+E:\C#\project\RobotControl\RobotControl\obj\Release\RobotControl.exe
+E:\C#\project\RobotControl\RobotControl\obj\Release\RobotControl.pdb
+E:\C#\project\RobotControl\RobotControl\obj\Release\RobotControl.csprojResolveAssemblyReference.cache
+E:\C#\project\RobotControl\RobotControl\bin\Release\RobotControl.exe.manifest
+E:\C#\project\RobotControl\RobotControl\bin\Release\RobotControl.application
+E:\C#\project\RobotControl\RobotControl\obj\Release\RobotControl.exe.manifest
+E:\C#\project\RobotControl\RobotControl\obj\Release\RobotControl.application

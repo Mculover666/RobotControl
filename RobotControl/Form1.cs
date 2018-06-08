@@ -11,6 +11,7 @@ namespace RobotControl
 {
     public partial class Form1 : Form
     {
+        private const string V = "T100\r";
         private int value_temp; //避免重复调用
         private DateTime current_time = new DateTime();     //避免重复调用
         public Form1()
@@ -75,7 +76,7 @@ namespace RobotControl
                     button1.Text = "关闭串口";
                     button1.BackColor = Color.Firebrick;
                     current_time = System.DateTime.Now;     //获取当前时间
-                    serialPort1.WriteLine("#Veri+"+current_time.ToString("yyyyMMddHHmm"));
+                    serialPort1.WriteLine("#Veri+"+current_time.ToString("yyyyMMddHHmm")+" \r");
 
                     comboBox1.Enabled = false;
                     comboBox2.Enabled = false;
@@ -132,28 +133,28 @@ namespace RobotControl
             //servo1
             textBox1.Text = trackBar1.Value.ToString();
             value_temp = 1500 + trackBar1.Value;
-            serialPort1.WriteLine("#1P"+value_temp.ToString()+"T100");
+            serialPort1.WriteLine("#1P"+value_temp.ToString()+ V);
         }
         private void trackBar2_Scroll(object sender, EventArgs e)
         {
             //servo3
             textBox2.Text = trackBar2.Value.ToString();
             value_temp = 1500 + trackBar2.Value;
-            serialPort1.WriteLine("#3P" + value_temp.ToString() + "T100");
+            serialPort1.WriteLine("#3P" + value_temp.ToString()+ V);
         }
         private void trackBar3_Scroll(object sender, EventArgs e)
         {
             //servo5
             textBox3.Text = trackBar3.Value.ToString();
             value_temp = 1500 + trackBar3.Value;
-            serialPort1.WriteLine("#5P" + value_temp.ToString() + "T100");
+            serialPort1.WriteLine("#5P" + value_temp.ToString()+ V);
         }
         private void trackBar4_Scroll(object sender, EventArgs e)
         {
             //servo7
             textBox4.Text = trackBar4.Value.ToString();
             value_temp = 1500 + trackBar4.Value;
-            serialPort1.WriteLine("#7P" + value_temp.ToString() + "T100");
+            serialPort1.WriteLine("#7P" + value_temp.ToString()+ V);
         }
 
         private void trackBar5_Scroll(object sender, EventArgs e)
@@ -161,7 +162,7 @@ namespace RobotControl
             //servo9
             textBox5.Text = trackBar5.Value.ToString();
             value_temp = 1500 + trackBar5.Value;
-            serialPort1.WriteLine("#9P" + value_temp.ToString() + "T100");
+            serialPort1.WriteLine("#9P" + value_temp.ToString()+ V);
         }
 
         private void trackBar6_Scroll(object sender, EventArgs e)
@@ -169,7 +170,7 @@ namespace RobotControl
             //servo2
             textBox6.Text = trackBar6.Value.ToString();
             value_temp = 1500 + trackBar6.Value;
-            serialPort1.WriteLine("#2P" + value_temp.ToString() + "T100");
+            serialPort1.WriteLine("#2P" + value_temp.ToString()+ V);
         }
 
         private void trackBar7_Scroll(object sender, EventArgs e)
@@ -177,7 +178,7 @@ namespace RobotControl
             //servo4
             textBox7.Text = trackBar7.Value.ToString();
             value_temp = 1500 + trackBar7.Value;
-            serialPort1.WriteLine("#4P" + value_temp.ToString() + "T100");
+            serialPort1.WriteLine("#4P" + value_temp.ToString()+ V);
         }
 
         private void trackBar8_Scroll(object sender, EventArgs e)
@@ -185,7 +186,7 @@ namespace RobotControl
             //servo6
             textBox8.Text = trackBar8.Value.ToString();
             value_temp = 1500 + trackBar8.Value;
-            serialPort1.WriteLine("#6P" + value_temp.ToString() + "T100");
+            serialPort1.WriteLine("#6P" + value_temp.ToString()+ V);
         }
 
         private void trackBar9_Scroll(object sender, EventArgs e)
@@ -193,7 +194,7 @@ namespace RobotControl
             //servo8
             textBox9.Text = trackBar9.Value.ToString();
             value_temp = 1500 + trackBar9.Value;
-            serialPort1.WriteLine("#8P" + value_temp.ToString() + "T100");
+            serialPort1.WriteLine("#8P" + value_temp.ToString()+ V);
         }
 
         private void trackBar10_Scroll(object sender, EventArgs e)
@@ -201,7 +202,7 @@ namespace RobotControl
             //servo10
             textBox10.Text = trackBar10.Value.ToString();
             value_temp = 1500 + trackBar10.Value;
-            serialPort1.WriteLine("#10P" + value_temp.ToString() + "T100");
+            serialPort1.WriteLine("#10P" + value_temp.ToString()+ V);
         }
 
         private void trackBar11_Scroll(object sender, EventArgs e)
@@ -209,7 +210,7 @@ namespace RobotControl
             //servo12
             textBox11.Text = trackBar11.Value.ToString();
             value_temp = 1500 + trackBar11.Value;
-            serialPort1.WriteLine("#12P" + value_temp.ToString() + "T100");
+            serialPort1.WriteLine("#12P" + value_temp.ToString()+ V);
         }
 
         private void trackBar12_Scroll(object sender, EventArgs e)
@@ -217,7 +218,7 @@ namespace RobotControl
             //servo11
             textBox12.Text = trackBar12.Value.ToString();
             value_temp = 1500 + trackBar12.Value;
-            serialPort1.WriteLine("#11P" + value_temp.ToString() + "T100");
+            serialPort1.WriteLine("#11P" + value_temp.ToString()+ V);
         }
     }
 }

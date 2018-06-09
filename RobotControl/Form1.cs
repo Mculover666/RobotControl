@@ -55,6 +55,7 @@ namespace RobotControl
                     button1.BackColor = Color.ForestGreen;
                     comboBox1.Enabled = true;
                     comboBox2.Enabled = true;
+                    button3.Enabled = false;
 
                     trackBar1.Enabled = false;
                     trackBar2.Enabled = false;
@@ -82,6 +83,7 @@ namespace RobotControl
 
                     comboBox1.Enabled = false;
                     comboBox2.Enabled = false;
+                    button3.Enabled = true;
 
                     trackBar1.Enabled =  true;
                     trackBar2.Enabled =  true;
@@ -114,6 +116,7 @@ namespace RobotControl
 
                 comboBox1.Enabled = true;
                 comboBox2.Enabled = true;
+                button3.Enabled = false;
 
                 trackBar1.Enabled = false;
                 trackBar2.Enabled = false;
@@ -294,6 +297,7 @@ namespace RobotControl
                     MessageBox.Show(ex.Message);
                     comboBox1.Enabled = true;
                     comboBox2.Enabled = true;
+                    button3.Enabled = false;
                 }
                
             }

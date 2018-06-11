@@ -14,8 +14,14 @@ namespace RobotControl
         private const string V = "T100\r";
         private int value_temp; //避免重复调用
         private DateTime current_time = new DateTime();     //避免重复调用
+        private bool time_flag = false; //避免重复调用
+        private bool finish_flag = false; //避免重复调用
         private int Num = 0;   //避免重复调用
+        private StringBuilder sb = new StringBuilder();    //为了避免在接收处理函数中反复调用，依然声明为一个全局变量
+        private String data_receive = "";
+
         private int cnt = 0;       //发送计数变量
+        private int cnt2 = 0;       //发送计数变量
         public Form1()
         {
             InitializeComponent();
@@ -56,6 +62,7 @@ namespace RobotControl
                     comboBox1.Enabled = true;
                     comboBox2.Enabled = true;
                     button3.Enabled = false;
+                    button6.Enabled = false;
 
                     trackBar1.Enabled = false;
                     trackBar2.Enabled = false;
@@ -84,6 +91,7 @@ namespace RobotControl
                     comboBox1.Enabled = false;
                     comboBox2.Enabled = false;
                     button3.Enabled = true;
+                    button6.Enabled = true;
 
                     trackBar1.Enabled =  true;
                     trackBar2.Enabled =  true;
@@ -117,6 +125,7 @@ namespace RobotControl
                 comboBox1.Enabled = true;
                 comboBox2.Enabled = true;
                 button3.Enabled = false;
+                button6.Enabled = false;
 
                 trackBar1.Enabled = false;
                 trackBar2.Enabled = false;
@@ -306,6 +315,7 @@ namespace RobotControl
         private void button4_Click(object sender, EventArgs e)
         {
             cnt = 0;
+            cnt = 0;
             timer1.Stop();                          //关闭定时器
             System.Media.SystemSounds.Beep.Play(); //响铃提示用户
             MessageBox.Show("停止运行");
@@ -315,6 +325,63 @@ namespace RobotControl
         {
             Num--;  //列表项计数变量自减1
             listView1.Items.Remove(listView1.Items[listView1.Items.Count-1]);
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            //进入下载模式
+            serialPort1.WriteLine("#Down" + "\r");      //发送下载命令
+            cnt2 = listView1.Items.Count;
+            for (int i = 0; i < cnt2; i++)
+            {
+                while (!data_receive.Equals("A")) ;                                          //检测下位机是否发送来字符'A'
+                data_receive = "";
+                //接收到'A'，开始发送数据
+                serialPort1.WriteLine(listView1.SelectedItems[i].SubItems[1].Text + '\r'); //串口发送数据
+              
+            }
+            for (int t = 50000; t > 0; t--) ;
+           
+            serialPort1.WriteLine("#Stop" + "\r");      //发送下载命令
+            while (!finish_flag)
+            {
+                if (data_receive.Length >= 8)
+                    if (data_receive.Substring(0, 8).Equals("#Down+OK"))
+                        finish_flag = true;
+            }
+            finish_flag = false;
+            serialPort1.WriteLine("#Flist" + "\r");      //发送下载命令
+
+            System.Media.SystemSounds.Beep.Play(); //响铃提示用户
+            MessageBox.Show("下载成功!");
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            time_flag = true;
+            timer2.Stop();      //关闭定时器
+        }
+
+        //接收数据处理
+        private void SerialPort1_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
+        {
+            int num = serialPort1.BytesToRead;      //获取接收缓冲区中的字节数
+            byte[] received_buf = new byte[num];    //声明一个大小为num的字节数据用于存放读出的byte型数据
+            serialPort1.Read(received_buf, 0, num);   //读取接收缓冲区中num个字节到byte数组中
+
+            sb.Clear();     //防止出错,首先清空字符串构造器
+            sb.Append(Encoding.ASCII.GetString(received_buf));  //将整个数组解码为ASCII数组
+            data_receive = sb.ToString();
+            try
+            {
+            }
+            catch (Exception ex)
+            {
+                //响铃并显示异常给用户
+                System.Media.SystemSounds.Beep.Play();
+                MessageBox.Show(ex.Message);
+
+            }
         }
     }
 }

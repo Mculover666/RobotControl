@@ -77,6 +77,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.button6 = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -91,8 +92,10 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel5 = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.button6 = new System.Windows.Forms.Button();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.label17 = new System.Windows.Forms.Label();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
@@ -112,6 +115,7 @@
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.panel5.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -229,6 +233,7 @@
             this.textBox1.Size = new System.Drawing.Size(53, 29);
             this.textBox1.TabIndex = 4;
             this.textBox1.Text = "0";
+            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
             // 
             // label4
             // 
@@ -260,6 +265,7 @@
             this.textBox2.Size = new System.Drawing.Size(53, 29);
             this.textBox2.TabIndex = 7;
             this.textBox2.Text = "0";
+            this.textBox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox2_KeyDown);
             // 
             // textBox3
             // 
@@ -269,6 +275,7 @@
             this.textBox3.Size = new System.Drawing.Size(53, 29);
             this.textBox3.TabIndex = 10;
             this.textBox3.Text = "0";
+            this.textBox3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox3_KeyDown);
             // 
             // label5
             // 
@@ -300,6 +307,7 @@
             this.textBox4.Size = new System.Drawing.Size(53, 29);
             this.textBox4.TabIndex = 13;
             this.textBox4.Text = "0";
+            this.textBox4.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox4_KeyDown);
             // 
             // label6
             // 
@@ -331,6 +339,7 @@
             this.textBox5.Size = new System.Drawing.Size(53, 29);
             this.textBox5.TabIndex = 16;
             this.textBox5.Text = "0";
+            this.textBox5.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox5_KeyDown);
             // 
             // label7
             // 
@@ -362,6 +371,7 @@
             this.textBox6.Size = new System.Drawing.Size(53, 29);
             this.textBox6.TabIndex = 19;
             this.textBox6.Text = "0";
+            this.textBox6.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox6_KeyDown);
             // 
             // label8
             // 
@@ -393,6 +403,7 @@
             this.textBox7.Size = new System.Drawing.Size(53, 29);
             this.textBox7.TabIndex = 22;
             this.textBox7.Text = "0";
+            this.textBox7.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox7_KeyDown);
             // 
             // label9
             // 
@@ -424,6 +435,7 @@
             this.textBox8.Size = new System.Drawing.Size(53, 29);
             this.textBox8.TabIndex = 25;
             this.textBox8.Text = "0";
+            this.textBox8.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox8_KeyDown);
             // 
             // label10
             // 
@@ -455,6 +467,7 @@
             this.textBox9.Size = new System.Drawing.Size(53, 29);
             this.textBox9.TabIndex = 28;
             this.textBox9.Text = "0";
+            this.textBox9.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox9_KeyDown);
             // 
             // label11
             // 
@@ -486,6 +499,7 @@
             this.textBox10.Size = new System.Drawing.Size(53, 29);
             this.textBox10.TabIndex = 31;
             this.textBox10.Text = "0";
+            this.textBox10.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox10_KeyDown);
             // 
             // label12
             // 
@@ -517,6 +531,7 @@
             this.textBox11.Size = new System.Drawing.Size(53, 29);
             this.textBox11.TabIndex = 34;
             this.textBox11.Text = "0";
+            this.textBox11.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox11_KeyDown);
             // 
             // label13
             // 
@@ -548,6 +563,7 @@
             this.textBox12.Size = new System.Drawing.Size(53, 29);
             this.textBox12.TabIndex = 37;
             this.textBox12.Text = "0";
+            this.textBox12.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox12_KeyDown);
             // 
             // label14
             // 
@@ -628,6 +644,7 @@
             // panel4
             // 
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.panel6);
             this.panel4.Controls.Add(this.button6);
             this.panel4.Controls.Add(this.label16);
             this.panel4.Controls.Add(this.button5);
@@ -644,6 +661,18 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(942, 200);
             this.panel4.TabIndex = 40;
+            // 
+            // button6
+            // 
+            this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button6.Enabled = false;
+            this.button6.Location = new System.Drawing.Point(843, 3);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(94, 23);
+            this.button6.TabIndex = 10;
+            this.button6.Text = "DownLoad";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // label16
             // 
@@ -803,22 +832,39 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // button6
-            // 
-            this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button6.Enabled = false;
-            this.button6.Location = new System.Drawing.Point(843, 3);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(94, 23);
-            this.button6.TabIndex = 10;
-            this.button6.Text = "DownLoad";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
             // timer2
             // 
             this.timer2.Interval = 1000;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.progressBar1);
+            this.panel6.Controls.Add(this.label17);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel6.Location = new System.Drawing.Point(0, 175);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(940, 23);
+            this.panel6.TabIndex = 11;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label17.ForeColor = System.Drawing.Color.Red;
+            this.label17.Location = new System.Drawing.Point(3, 2);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(95, 21);
+            this.label17.TabIndex = 0;
+            this.label17.Text = "串口已关闭!";
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.progressBar1.Location = new System.Drawing.Point(199, 3);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(741, 17);
+            this.progressBar1.TabIndex = 1;
             // 
             // Form1
             // 
@@ -833,7 +879,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(958, 798);
             this.Name = "Form1";
-            this.Text = "RobotControl@V3.0";
+            this.Text = "RobotControl@V3.1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -858,6 +904,8 @@
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.panel5.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -927,6 +975,9 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Label label17;
     }
 }
 
